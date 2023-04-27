@@ -24,7 +24,7 @@ cloudinary.config({
 });
 app.use(
   cors({
-    origin: "http://example.com",
+    origin: "https://ecommerce-q3sc.onrender.com/",
     methods: "GET,POST",
     credentials: true,
   })
