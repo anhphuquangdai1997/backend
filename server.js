@@ -1,4 +1,5 @@
 const app = require("./app");
+const cors = require('cors');
 const cloudinary = require("cloudinary");
 const connectDatabase = require("./config/database");
 // Handling Uncaught Exception
@@ -13,19 +14,15 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({ path: "backend/config/config.env" });
 }
 
- 
+app.use(cors());
 
 app.use(function (req, res, next) {
-
-  res. setHeader( 'Access-Control-Allow-Origin',process.env.FRONTEND_URL);
-  
-  // Request methods you wish to allow
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
-
+  res.setHeader('Access-Control-Allow-Origin', 'https://stunning-cuchufli-8aa755.netlify.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  res.setHeader('Access-Control-Allow-Credentials',true);
+  res.setHeader('Access-Control-Allow-Credentials', true);
   next();
-})
+});
 
 // Connecting to database
 connectDatabase();
