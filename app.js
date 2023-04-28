@@ -14,7 +14,7 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 }
 app.use(cors());
 app.use(function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'https://stunning-cuchufli-8aa755.netlify.app');
+  res.setHeader('Access-Control-Allow-Origin', 'https://r332kq.csb.app/');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
   res.setHeader('Access-Control-Allow-Credentials', true);
