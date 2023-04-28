@@ -17,7 +17,7 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 
 app.use(function (req, res, next) {
 
-  res. setHeader( 'Access-Control-Allow-Origin','https://stunning-cuchufli-8aa755.netlify.app/');
+  res. setHeader( 'Access-Control-Allow-Origin',process.env.FRONTEND_URL);
   
   // Request methods you wish to allow
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
