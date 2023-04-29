@@ -14,7 +14,11 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({ path: "backend/config/config.env" });
 }
 
-app.use(cors());
+app.use(cors(
+  {
+    origin:"https://r332kq.csb.app/"
+  }
+));
 
 // Connecting to database
 connectDatabase();
