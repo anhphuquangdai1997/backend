@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const path = require("path");
+const cors = require("cors");
 
 const errorMiddleware = require("./middleware/error");
 
@@ -22,6 +23,13 @@ const product = require("./routes/productRoute");
 const user = require("./routes/userRoute");
 const order = require("./routes/orderRoute");
 const payment = require("./routes/paymentRoute");
+
+app.use(cors({
+  origin:'',
+  methods:['POST','GET','DELETE','PUT']
+}
+
+));
 
 app.use("/api/v1", product);
 app.use("/api/v1", user);
