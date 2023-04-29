@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const path = require("path");
+const cors = require("cors");
 
 const errorMiddleware = require("./middleware/error");
 
@@ -16,6 +17,19 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
+
+// Enable CORS
+app.use(cors({
+  origin:'',
+  methods:['POST','GET','DELETE','PUT']
+}
+));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
 
 // Route Imports
 const product = require("./routes/productRoute");
