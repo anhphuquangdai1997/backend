@@ -20,18 +20,29 @@ app.use(fileUpload());
 
 // Enable CORS
 app.use(cors({
-  origin: 'http://localhost:5173', // Thay bằng domain của frontend
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'], // Cho phép header Authorization
-  credentials: true,
-}));
-app.options('*', cors()); // Xử lý preflight request
+  origin:'',
+  methods:['POST','GET','DELETE','PUT']
+}
+));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
 
 // Route Imports
 const product = require("./routes/productRoute");
 const user = require("./routes/userRoute");
 const order = require("./routes/orderRoute");
 const payment = require("./routes/paymentRoute");
+
+app.use(cors({
+  origin:'',
+  methods:['POST','GET','DELETE','PUT']
+}
+
+));
 
 app.use("/api/v1", product);
 app.use("/api/v1", user);
