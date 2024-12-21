@@ -37,12 +37,6 @@ const user = require("./routes/userRoute");
 const order = require("./routes/orderRoute");
 const payment = require("./routes/paymentRoute");
 
-app.use(cors({
-  origin:'',
-  methods:['POST','GET','DELETE','PUT']
-}
-
-));
 
 app.use("/api/v1", product);
 app.use("/api/v1", user);
