@@ -20,16 +20,16 @@ app.use(fileUpload());
 
 // Enable CORS
 app.use(cors({
-  origin:'',
-  methods:['POST','GET','DELETE','PUT']
+  origin: ['https://dienthoaididong.vercel.app', 'https://fee-2rad-ck1ddvaix-anhphuquangdai1997s-projects.vercel.app/'],
+  methods:['POST','GET','DELETE','PUT'],
+  credentials: true, // Cho phép gửi cookie kèm theo yêu cầu
 }
-));
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+//   res.header("Access-Control-Allow-Headers", "Content-Type");
+//   next();
+// });
 
 // Route Imports
 const product = require("./routes/productRoute");
